@@ -1,0 +1,161 @@
+html {
+  background-color: #B8E8EF;
+  border-top: 5px solid #20719F;
+  color: #00658D;
+  font: 14px normal "Proxima Nova", Helvetica, Arial, sans-serif;
+  margin: 0;
+  padding-top: 20px;
+  text-align: center;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, .75)
+}
+
+#content-wrapper {
+  height: 215px;
+  left: 50%;
+  margin: -107px 0 0 -272px;
+  position: absolute;
+  top: 45%;
+  width: 544px;
+  white-space: nowrap;
+}
+
+#content-wrapper.icons {
+  width: auto;
+  margin: 100px auto 0;
+  position: static;
+}
+
+#content-wrapper.icons a {
+  opacity: .7;
+  margin: 0 10px;
+  -webkit-transition: opacity .2s ease-out;
+     -moz-transition: opacity .2s ease-out;
+      -ms-transition: opacity .2s ease-out;
+       -o-transition: opacity .2s ease-out;
+          transition: opacity .2s ease-out;
+}
+
+#content-wrapper.icons a:hover {
+  opacity: 1;
+}
+
+#percentage-wrap {
+  -webkit-transition: width .2s ease-out;
+     -moz-transition: width .2s ease-out;
+      -ms-transition: width .2s ease-out;
+       -o-transition: width .2s ease-out;
+          transition: width .2s ease-out;
+
+  display: inline-block;
+  margin: 5px 0 50px 20px;
+  overflow: hidden;
+  vertical-align: top;
+  white-space: nowrap;
+  width: 300px;
+}
+
+/* Stupid hack */
+#percentage-wrap.done-transitioning {
+  overflow: visible;
+}
+
+.icon {
+  height: 230px;
+}
+
+.icon.loading {
+  -webkit-animation: bounce .9s infinite;
+   -moz-animation: bounce .9s infinite;
+    -ms-animation: bounce .9s infinite;
+     -o-animation: bounce .9s infinite;
+        animation: bounce .9s infinite;
+}
+
+.hidden {
+  width: 0 !important;
+  margin: 0 !important;
+  height: 0 !important;
+}
+
+h1 {
+  font-size: 150px;
+  margin: 0;
+}
+
+p {
+  font-size: 25px;
+  margin: 0;
+}
+
+.divider-line {
+  border-top: 1px solid #72ABC9;
+  border-bottom: 1px solid #72ABC9;
+  display: block;
+  height: 0;
+  margin: 0 auto;
+  width: 93%;
+}
+
+.subsentence {
+  background-color: #B9E6ED;
+  color: #72ABC9;
+  font: 20px normal 'Museo Slab';
+  margin: -11px auto 11px;
+  text-shadow: none;
+  top: 85px;
+  width: 80%;
+}
+
+#percentage-type {
+  font-size: 40px;
+  font-weight: bold;
+}
+
+.citation {
+  -webkit-transition: height .2s ease-out;
+     -moz-transition: height .2s ease-out;
+      -ms-transition: height .2s ease-out;
+       -o-transition: height .2s ease-out;
+          transition: height .2s ease-out;
+
+  color: #72ABC9;
+  font: 16px normal 'Museo Slab';
+  overflow: hidden;
+  text-shadow: none;
+  position: fixed;
+  bottom: 80px;
+  left: 0;
+  right: 0;
+}
+
+.phone-home {
+  position: fixed;
+  bottom: 30px;
+  left: 0;
+  right: 0;
+}
+
+@-webkit-keyframes bounce {
+  0% { margin-top: 0px; opacity: 1; }
+  50% { margin-top: -10px; opacity: .7; }
+}
+
+@-o-keyframes bounce {
+  0% { margin-top: 0px; opacity: 1; }
+  50% { margin-top: -10px; opacity: .7; }
+}
+
+@-moz-keyframes bounce {
+  0% { margin-top: 0px; opacity: 1; }
+  50% { margin-top: -10px; opacity: .7; }
+}
+
+@-ms-keyframes bounce {
+  0% { margin-top: 0px; opacity: 1; }
+  50% { margin-top: -10px; opacity: .7; }
+}
+
+@keyframes bounce {
+  0% { margin-top: 0px; opacity: 1; }
+  50% { margin-top: -10px; opacity: .7; }
+}

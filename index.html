@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Real-time Browser Usage Stats</title>
+        <link rel="stylesheet" type="text/css" href="css/main.css" />
+        <script type="text/javascript">var _sf_startpt=(new Date()).getTime()</script>
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+        <meta name="description" content="Real-time browser usage stats, powered by Chartbeat" />
+    </head>
+    <body>
+        <!--[if IE lte 8]>
+          <h2>Sorry, your browser is too old for this page.</h2>
+        <![endif]-->
+        <div id="content-wrapper">
+          <img class="icon" src="" />
+          <div id="percentage-wrap" class="hidden">
+              <h1 id="percentage"></h1>
+              <p class="divider-line"></p>
+              <p class="subsentence">of the internet is using</p>
+              <p id="percentage-type"></p>
+          </div>
+        </div>
+        
+        <p class="citation hidden">Based on <span id="total-visitors"></span><br>active browser sessions</p>
+        <a class="phone-home" href="http://chartbeat.com/?utm_campaign=pct_internet">
+            <img src="img/cblogo.png" />
+        </a>
+        <script src="js/percentage.js"></script>
+        <script>
+          var targets = {
+            'chrome': {
+              'label': 'Google Chrome',
+              'key': 'bt.chrome'
+            },
+            'firefox': {
+              'label': 'Mozilla Firefox',
+              'key': 'bt.ff'
+            },
+            'ie': {
+              'label': 'Internet Explorer',
+              'key': 'bt.ie'
+            },
+            'safari': {
+              'label': 'Apple Safari',
+              'key': 'bt.safari'
+            },
+            'mac': {
+              'label': 'A Mac',
+              'key': 'os.mac'
+            },
+            'windows': {
+              'label': 'A Windows PC',
+              'key': 'os.win'
+            },
+            'linux': {
+              'label': 'A Linux machine',
+              'key': 'os.linux'
+            }
+          };
+
+          var path = window.location.pathname.replace('/', '');
+          var sub = window.location.host.split('.')[0];
+          var target, key;
+          for (key in targets) {
+            if (path === key || sub === key) {
+              target = targets[key];
+              break;
+            }
+          }
+
+          $(function() {
+            if (target) {
+              $('#percentage-type').text(target.label);
+              $('.icon').attr('src', 'img/' + key + '.png').addClass('loading');
+              new Percentage(target.key);
+              _gaq.push(['_trackPageView', '/' + key, target.label]);
+              if (window.pSUPERFLY) {
+                pSUPERFLY.virtualPage('/' + key, target.label);
+              } else {
+                _sf_async_config.path = '/' + key;
+                _sf_async_config.title = target.label;
+              }
+            } else {
+              var el = $('#content-wrapper');
+              var html = '';
+              for (key in targets) {
+                var t = targets[key];
+                html += '<a href="/' + key + '"><img src="img/' + key + '.png" width="100"/></a>';
+              }
+              $('#content-wrapper').addClass('icons').html(html);
+            }
+          });
+        </script>
+        <script type="text/javascript">
+          var _gaq = _gaq || [];
+          _gaq.push(['_setAccount', 'UA-1223636-26']);
+          _gaq.push(['_setDomainName', 'percentoftheinternet.com']);
+          _gaq.push(['_trackPageview']);
+
+          (function() {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+          })();
+        </script>
+        <script type="text/javascript">
+        var _sf_async_config={};
+        /** CONFIGURATION START **/
+        _sf_async_config.uid = 1;
+        _sf_async_config.domain = "percentoftheinternet.com";
+        /** CONFIGURATION END **/
+        (function(){
+          function loadChartbeat() {
+            window._sf_endpt=(new Date()).getTime();
+            var e = document.createElement("script");
+            e.setAttribute("language", "javascript");
+            e.setAttribute("type", "text/javascript");
+            e.setAttribute("src",
+               (("https:" == document.location.protocol) ?
+                 "https://a248.e.akamai.net/chartbeat.download.akamai.com/102508/" :
+                 "http://static.chartbeat.com/") +
+               "js/chartbeat.js");
+            document.body.appendChild(e);
+          }
+          var oldonload = window.onload;
+          window.onload = (typeof window.onload != "function") ?
+             loadChartbeat : function() { oldonload(); loadChartbeat(); };
+        })();
+      </script>
+  </body>
+</html>
