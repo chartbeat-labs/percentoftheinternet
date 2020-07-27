@@ -13,19 +13,27 @@
         <!--[if IE lte 8]>
           <h2>Sorry, your browser is too old for this page.</h2>
         <![endif]-->
-        <div id="content-wrapper">
-          <img class="icon" src="" />
+        <div id="container">
+
+            <div id ="header-wrapper"/>
+                <a href="http://127.0.0.1">
+                    <img class="cblogo" src="img/poti-logo.svg">
+                </a>
+                <button class="button">About</button>
+            </div>
+        <div id="content-wrapper"/> 
+        <div id= "info-wrapper">
+            <img class="icon" src="" />
           <div id="percentage-wrap" class="hidden">
-              <h1 id="percentage"></h1>
-              <p class="divider-line"></p>
-              <p class="subsentence">of the internet is using</p>
-              <p id="percentage-type"></p>
+
+              <h1 class="subsentence"><span id="percentage"></span> of the internet<h1>
+                      <p class="subinfo"> is running <span id="percentage-type"> </span> based on <span id="total-visitors"></span><br>active browser sessions</p>
           </div>
         </div>
-        
-        <p class="citation hidden">Based on <span id="total-visitors"></span><br>active browser sessions</p>
+        </div>
+        </div>
         <a class="phone-home" href="http://chartbeat.com/?utm_campaign=pct_internet">
-            <img src="img/cblogo.png" />
+            <p class="footer">Made with &#x2764 by Chartbeat</p>
         </a>
         <script src="js/percentage.js"></script>
         <script>
@@ -55,22 +63,33 @@
               'key': 'os.win'
             },
             'linux': {
-              'label': 'A Linux machine',
+             'label': 'A Linux machine',
               'key': 'os.linux'
             }
           };
 
+            
+
           var path = window.location.pathname.replace('/', '');
           var sub = window.location.host.split('.')[0];
           var target, key;
-          for (key in targets) {
+         /* for (key in targets) {
             if (path === key || sub === key) {
               target = targets[key];
               break;
             }
-          }
+          }*/
 
-          $(function() {
+          createview(targets);
+
+          function createview(targets) {
+            var target, key;       
+            for (key in targets) {
+              if (path === key || sub === key) {
+                target = targets[key];
+                break;
+              }
+            }
             if (target) {
               $('#percentage-type').text(target.label);
               $('.icon').attr('src', 'img/' + key + '.png').addClass('loading');
@@ -84,14 +103,22 @@
               }
             } else {
               var el = $('#content-wrapper');
-              var html = '';
+              var html_line1 = '';
+              var html_line2 = '';
+              var counter = 0;
               for (key in targets) {
                 var t = targets[key];
-                html += '<a href="/' + key + '"><img src="img/' + key + '.png" width="100"/></a>';
+                sep = "";
+                if (counter == 3){
+                    sep ='<div class="break"></div>';
+                }
+                  html_line1 += '<a href="/' + key + '"><img src="img/' + key + '.png" width="100"/></a>' + sep;
+                counter ++;
               }
-              $('#content-wrapper').addClass('icons').html(html);
+              $('#content-wrapper').addClass('icons').html(html_line1); 
             }
-          });
+          };
+
         </script>
         <script type="text/javascript">
           var _gaq = _gaq || [];

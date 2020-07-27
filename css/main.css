@@ -1,33 +1,54 @@
 html {
-  background-color: #B8E8EF;
-  border-top: 5px solid #20719F;
+  background-color: #fafafa;
   color: #00658D;
   font: 14px normal 'proxima-nova', Helvetica, Arial, sans-serif;
   margin: 0;
-  padding-top: 20px;
   text-align: center;
   text-shadow: 0 1px 0 rgba(255, 255, 255, .75)
 }
 
+#container{
+}
+
+#header-wrapper{
+    display:flex;
+    padding-top:10px;
+    flex-direction:row;
+    justify-content: space-between;
+
+}
+
 #content-wrapper {
   height: 215px;
-  left: 50%;
-  margin: -107px 0 0 -272px;
+  margin: 50px 0 0 0;
   position: absolute;
-  top: 45%;
-  width: 544px;
-  white-space: nowrap;
+  top: 25%;
+  left: 25%;
+  width: 544px;  
+  white-space: normal;
 }
 
 #content-wrapper.icons {
   width: auto;
-  margin: 100px auto 0;
+  left:50%;
+  margin: 100px auto 64px 16%;
   position: static;
+  align-items:center;
+  display:flex;
+  flex-direction:row;
+  flex-wrap:wrap;
 }
 
 #content-wrapper.icons a {
-  opacity: .7;
-  margin: 0 10px;
+  width: 184px;
+  height: 172px;
+  background: rgb(255, 255, 255);
+  box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.06);
+  border-radius: 4px;
+  opacity: 1;
+  padding-top:25px;
+  margin: 24px;
+  justify-content: center;
   -webkit-transition: opacity .2s ease-out;
      -moz-transition: opacity .2s ease-out;
       -ms-transition: opacity .2s ease-out;
@@ -36,7 +57,12 @@ html {
 }
 
 #content-wrapper.icons a:hover {
-  opacity: 1;
+  box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.24);
+}
+
+#info-wrapper{
+    display:flex;
+    flex-direction:row;
 }
 
 #percentage-wrap {
@@ -47,11 +73,11 @@ html {
           transition: width .2s ease-out;
 
   display: inline-block;
-  margin: 5px 0 50px 20px;
+  margin: 5px 0 80px 20px;
   overflow: hidden;
-  vertical-align: top;
+  vertical-align: bottom;
   white-space: nowrap;
-  width: 300px;
+  width: 200px;
 }
 
 /* Stupid hack */
@@ -60,7 +86,29 @@ html {
 }
 
 .icon {
-  height: 230px;
+  height: 230px;  
+}
+
+.button{
+    height:30px
+    padding:none;
+    text-align: center;
+    background-color:#fafafa;
+    margin: 0 32px 0 0;
+    cursor: pointer;
+    user-select: none;
+    font-family:'proxima-nova', Helvetica, Arial, sans-serif;
+    font-weight: normal;
+    color:#3A8EE8;
+    border:none;
+}
+
+.button:hover{
+    background-color:#D9EDFB;
+}
+
+.button:active{
+    background-color:#BADCF6;
 }
 
 .icon.loading {
@@ -71,6 +119,7 @@ html {
         animation: bounce .9s infinite;
 }
 
+
 .hidden {
   width: 0 !important;
   margin: 0 !important;
@@ -78,38 +127,41 @@ html {
 }
 
 h1 {
-  font-size: 150px;
+  font-size: 48px;
+  font-weight:normal;
   margin: 0;
 }
 
 p {
-  font-size: 25px;
   margin: 0;
 }
 
-.divider-line {
-  border-top: 1px solid #72ABC9;
-  border-bottom: 1px solid #72ABC9;
-  display: block;
-  height: 0;
-  margin: 0 auto;
-  width: 93%;
-}
 
 .subsentence {
-  background-color: #B9E6ED;
-  color: #72ABC9;
-  font: 20px normal 'museo-slab','Museo Slab', Rockwell;;
-  margin: -11px auto 11px;
+  color: #1F4564;
+  font-family: 'proxima-nova', Helvetica, Arial, sans-serif;
+  margin: 50px auto 11px;
   text-shadow: none;
-  top: 85px;
+  top: 100px;
   width: 80%;
 }
 
-#percentage-type {
-  font-size: 40px;
+.subinfo{
+  color: #4D4D4D;
+  font-size: 16px;
+  font-weight: normal;
+  font-family:'proxima-nova', Helvetica, Arial, sans-serif;
+  margin: -11px auto 11px;
+  text-shadow: none;
+  top: 100px;
+  width: 80%;
+}
+#total-visitors {
+  font-size: 16px;
   font-weight: bold;
 }
+
+
 
 .citation {
   -webkit-transition: height .2s ease-out;
@@ -118,8 +170,6 @@ p {
        -o-transition: height .2s ease-out;
           transition: height .2s ease-out;
 
-  color: #72ABC9;
-  font: 16px normal 'museo-slab','Museo Slab', Rockwell;
   overflow: hidden;
   text-shadow: none;
   position: fixed;
@@ -128,10 +178,33 @@ p {
   right: 0;
 }
 
+.break {
+  flex-basis: 100%;
+  height: 0;
+}
+
+
+.cblogo {
+   width: 136px;
+   height:auto;
+   margin-left:64px;
+    }
+
+.footer {
+    width: 181px;
+    height: 20px;
+    color: rgb(77, 77, 77);
+    font-size: 15px;
+    font-family:'proxima-nova', Helvetica, Arial, sans-serif;
+    font-weight: normal;
+    text-align: center;
+    line-height: 20px;
+}
+
 .phone-home {
   position: fixed;
   bottom: 30px;
-  left: 0;
+  left: 50%;
   right: 0;
 }
 
