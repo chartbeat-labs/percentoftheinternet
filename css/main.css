@@ -10,6 +10,23 @@ html {
 #container{
 }
 
+ a:link {
+  text-decoration: none;
+}
+
+a:visited {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+a:active {
+  text-decoration: none;
+}
+
+
 #header-wrapper{
     display:flex;
     padding-top:10px;
@@ -31,7 +48,7 @@ html {
 #content-wrapper.icons {
   width: auto;
   left:50%;
-  margin: 100px auto 64px 16%;
+  margin: 75px auto 100px 16%;
   position: static;
   align-items:center;
   display:flex;
@@ -110,6 +127,18 @@ html {
 .button:active{
     background-color:#BADCF6;
 }
+
+.label{
+    height: 20px;
+    color: rgb(31, 69, 100);
+    font-size: 16px;
+    font-family: 'proxima-nova', Helvetica, Arial, sans-serif;;
+    font-weight: 600;
+    text-decoration:none;
+    line-height:40px;
+    text-align:center;
+}
+
 
 .icon.loading {
   -webkit-animation: bounce .9s infinite;

@@ -112,7 +112,7 @@
                 if (counter == 3){
                     sep ='<div class="break"></div>';
                 }
-                  html_line1 += '<a href="/' + key + '"><img src="img/' + key + '.png" width="100"/></a>' + sep;
+                  html_line1 += '<a href="/' + key + '"><img src="img/' + key + '.png" width="100"/><p class="label">'+key+'</p></a>' + sep;
                 counter ++;
               }
               $('#content-wrapper').addClass('icons').html(html_line1); 
